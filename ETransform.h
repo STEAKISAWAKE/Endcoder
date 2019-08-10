@@ -6,6 +6,9 @@ class ETransform
 {
 
 public:
+
+	ETransform();
+
 	ETransform* Child;
 	ETransform* Parent;
 
@@ -19,6 +22,7 @@ public:
 
 	void disconnectFromParent();
 
+	void setPosition(sf::Vector2f newPosition) { position = newPosition; };
 	sf::Vector2f getPosition() { return position; }
 
 

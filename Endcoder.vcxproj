@@ -72,6 +72,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)lib;$(LibraryPath)</LibraryPath>
+    <CodeAnalysisRuleSet>NativeRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -91,11 +93,13 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <EnablePREfast>false</EnablePREfast>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -134,23 +138,41 @@
   <ItemGroup>
     <ClCompile Include="EApplication.cpp" />
     <ClCompile Include="EBlock.cpp" />
+    <ClCompile Include="EBlockManager.cpp" />
+    <ClCompile Include="EGroup.cpp" />
     <ClCompile Include="EGui.cpp" />
     <ClCompile Include="ELog.cpp" />
     <ClCompile Include="EProjectSettings.cpp" />
     <ClCompile Include="ERenderer.cpp" />
     <ClCompile Include="ESettings.cpp" />
     <ClCompile Include="ETransform.cpp" />
+    <ClCompile Include="imgui-SFML.cpp" />
+    <ClCompile Include="imgui.cpp" />
+    <ClCompile Include="imgui_demo.cpp" />
+    <ClCompile Include="imgui_draw.cpp" />
+    <ClCompile Include="imgui_widgets.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EApplication.h" />
     <ClInclude Include="EBlock.h" />
+    <ClInclude Include="EBlockManager.h" />
+    <ClInclude Include="EGroup.h" />
     <ClInclude Include="EGui.h" />
     <ClInclude Include="ELog.h" />
     <ClInclude Include="EProjectSettings.h" />
     <ClInclude Include="ERenderer.h" />
     <ClInclude Include="ESettings.h" />
     <ClInclude Include="ETransform.h" />
+    <ClInclude Include="imconfig-SFML.h" />
+    <ClInclude Include="imconfig.h" />
+    <ClInclude Include="imgui-SFML.h" />
+    <ClInclude Include="imgui-SFML_export.h" />
+    <ClInclude Include="imgui.h" />
+    <ClInclude Include="imgui_internal.h" />
+    <ClInclude Include="imstb_rectpack.h" />
+    <ClInclude Include="imstb_textedit.h" />
+    <ClInclude Include="imstb_truetype.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

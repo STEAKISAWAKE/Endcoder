@@ -1,6 +1,11 @@
 #include "ETransform.h"
 #include "ELog.h"
 
+ETransform::ETransform()
+{
+	
+}
+
 void ETransform::setParent(ETransform* newParent)
 {
 	if (!newParent->Child) {
@@ -57,3 +62,4 @@ void ETransform::disconnectFromParent()
 		
 	}
 }
+
