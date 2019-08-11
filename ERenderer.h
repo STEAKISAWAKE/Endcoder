@@ -45,6 +45,7 @@ public:
 	EGroup* drawingGroup;
 	EBlockManager* blockManager;
 
+	sf::Font font;
 };
 
 #endif

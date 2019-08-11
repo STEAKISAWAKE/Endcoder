@@ -19,6 +19,7 @@ public:
 	void deleteSelectedBlocks();
 
 	void Update(sf::Event event);
+	void UpdateBlocks();
 	void Shutdown();
 
 	void unselectAllBlocks();
@@ -33,6 +34,9 @@ public:
 
 	std::vector<EBlock*> selectedBlocks;
 
+	sf::Font* blockFont;
+
+	bool holdingMouse;
 };
 
 #endif

@@ -42,7 +42,7 @@ public:
 
 	sf::RectangleShape backgroundShape;
 	sf::Text titleText;
-
+	sf::Font* textFont;
 
 	EGroup drawingGroup;
 

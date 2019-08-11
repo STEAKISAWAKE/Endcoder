@@ -45,13 +45,18 @@ void EApplication::Update()
 			if (!render.gui.isAnyWindowHovered()) {
 				blockManager.Update(event);
 			}
+			else {
+				blockManager.UpdateBlocks();
+			}
+
+			
 		}
 
 		
 
 		ImGui::SFML::Update(window, deltaClock.restart());
 
-		window.clear();
+		window.clear(sf::Color::White);
 
 		render.Draw();
 

@@ -1,5 +1,9 @@
 #include "EBlockManager.h"
+
+#include <iostream>
+
 #include "imgui.h"
+
 
 void EBlockManager::createBlock()
 {
@@ -8,7 +12,13 @@ void EBlockManager::createBlock()
 	EBlock* newBlock = new EBlock();
 	newBlock->Init();
 
+
+	newBlock->textFont = blockFont;
+
+
 	drawingGroup.push_back(newBlock->drawingGroup);
+
+
 	blocks.push_back(newBlock);
 
 }
@@ -52,6 +62,7 @@ void EBlockManager::Update(sf::Event event)
 
 	//Selected blocks event stuff
 	if (event.type == sf::Event::MouseButtonPressed) {
+
 		if (event.mouseButton.button == sf::Mouse::Left) {
 			//For all blocks
 			bool hitBlock = false;
@@ -61,6 +72,9 @@ void EBlockManager::Update(sf::Event event)
 
 				if (blocks[b]->isMouseHovering(window->mapPixelToCoords(pixelPos))) {
 					//Person clicked on block
+
+
+
 					hitBlock = true;
 
 					//if (selectedBlocks.size() == 0) {
@@ -77,7 +91,7 @@ void EBlockManager::Update(sf::Event event)
 				
 				unselectAllBlocks();
 			}
-
+			holdingMouse = true;
 		} if (event.mouseButton.button == sf::Mouse::Right) {
 			if (selectedBlocks.size() > 0) {
 				for (int s = 0; s < selectedBlocks.size(); s++) {
@@ -85,7 +99,37 @@ void EBlockManager::Update(sf::Event event)
 					selectedBlocks[s]->setPosition(window->mapPixelToCoords(pixelPos));
 				}
 			}
+			
 		}
+		
+	}
+
+	if (event.type == sf::Event::MouseButtonReleased) {
+		if (event.mouseButton.button == sf::Mouse::Left) {
+			holdingMouse = false;
+		}
+	}
+
+	//User holding mouse button moving
+	for (int b = 0; b < blocks.size(); b++) {
+		sf::Vector2i pixelPos = sf::Mouse::getPosition(*window);
+
+		//Person clicked on block
+
+		//for moving the block
+		if (blocks[b]->selected_b && holdingMouse) {
+			blocks[b]->setPosition(window->mapPixelToCoords(pixelPos));
+		}
+
+		
+	}
+
+}
+
+void EBlockManager::UpdateBlocks()
+{
+	for (int b = 0; b < blocks.size(); b++) {
+		blocks[b]->Update();
 	}
 }
 
