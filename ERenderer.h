@@ -1,6 +1,7 @@
 #ifndef ERENDERER_H_
 #define ERENDERER_H_
 
+
 class EBlockManager;
 
 #include <vector>
@@ -8,44 +9,30 @@ class EBlockManager;
 #include <SFML/Graphics.hpp>
 #include "imgui.h"
 
+#include "EGui.h"
 #include "EBlockManager.h"
 #include "EGroup.h"
-
-class EGui
-{
-public:
-	void Draw();
-
-	sf::Clock* clock;
-
-	EGroup* drawingGroup;
-	EBlockManager* blockManager;
-
-	bool isAnyWindowHovered();
-
-private:
-	void Properties();
-	bool PropertiesHovered = false;
-	void Debug();
-	bool DebugHovered = false;
-	//EApplication* app;
-};
 
 
 class ERenderer
 {
 public:
+	ERenderer();
+	~ERenderer();
+
 	EGui gui;
 
-	sf::RenderWindow* window;
+	sf::RenderWindow* window = nullptr;
 
 	void Draw();
 	void Init();
 
-	EGroup* drawingGroup;
-	EBlockManager* blockManager;
+	EGroup drawingGroup;
+	EBlockManager* blockManager = nullptr;
 
 	sf::Font font;
+
+	sf::Text testText;
 };
 
 #endif

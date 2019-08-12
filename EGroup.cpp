@@ -2,17 +2,17 @@
 
 EGroup::EGroup()
 	: m_drawables{} {
-
+	m_drawables.empty();
 }
 
 void EGroup::draw(sf::RenderTarget& target, sf::RenderStates states) const {
-	/*for (const auto& drawable : m_drawables) {
+	for (const auto& drawable : m_drawables) {
 		target.draw(drawable, states);
-	}*/
-
-	for (int t = 0; t < m_drawables.size(); t++) {
-		target.draw(m_drawables[t], states);
 	}
+
+	//for (int t = 0; t < m_drawables.size(); t++) {
+	//	target.draw(m_drawables[t], states);
+	//}
 }
 
 const sf::Drawable& EGroup::operator[](std::size_t index) {

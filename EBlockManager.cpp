@@ -10,10 +10,13 @@ void EBlockManager::createBlock()
 	
 	//Crete new block on the heap.
 	EBlock* newBlock = new EBlock();
+
+	newBlock->textFont = blockFont;
+
 	newBlock->Init();
 
 
-	newBlock->textFont = blockFont;
+	
 
 
 	drawingGroup.push_back(newBlock->drawingGroup);

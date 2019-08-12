@@ -7,6 +7,7 @@
 
 #include "ERenderer.h"
 #include "EBlockManager.h"
+#include "EKeyboard.h"
 
 class EApplication
 {
@@ -24,6 +25,7 @@ public:
 	sf::Clock deltaClock;
 	sf::RenderWindow window;
 	EBlockManager blockManager;
+	EKeyboard keyboard;
 	
 };
 

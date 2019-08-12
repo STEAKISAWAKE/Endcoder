@@ -3,10 +3,14 @@
 #include "imgui.h"
 #include "imgui-SFML.h"
 
+#include "ELog.h"
+
 EApplication::EApplication() {
 	render.window = &window;
 	render.blockManager = &blockManager;
 	blockManager.window = &window;
+
+	
 }
 
 void EApplication::Init()
@@ -17,8 +21,9 @@ void EApplication::Init()
 	window.setFramerateLimit(60);
 	ImGui::SFML::Init(window);
 
-	render.Init();
 
+	render.Init();
+	keyboard.Init();
 }
 
 void EApplication::Update()
@@ -53,10 +58,13 @@ void EApplication::Update()
 		}
 
 		
-
+		keyboard.Update();
 		ImGui::SFML::Update(window, deltaClock.restart());
 
 		window.clear(sf::Color::White);
+
+		//window.draw(testText);
+		
 
 		render.Draw();
 
@@ -70,4 +78,5 @@ void EApplication::Shutdown()
 	ImGui::SFML::Shutdown();
 
 	blockManager.Shutdown();
+	keyboard.Shutdown();
 }

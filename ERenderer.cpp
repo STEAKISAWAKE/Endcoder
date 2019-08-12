@@ -4,17 +4,32 @@
 
 #include "ELog.h"
 
+
+
 void ERenderer::Init() {
-	gui.drawingGroup = drawingGroup;
+	
+	gui.drawingGroup = &drawingGroup;
 	gui.blockManager = blockManager;
+
+	blockManager->blockFont = &font;
+
+}
+
+ERenderer::ERenderer()
+{
+	
 
 	if (!font.loadFromFile("OpenSans-Regular.ttf"))
 	{
 		ELog::ErrorLog("Could not load font.", "ERenderer::Init");
 	}
 
-	blockManager->blockFont = &font;
 
+}
+
+ERenderer::~ERenderer()
+{
+	
 }
 
 void ERenderer::Draw()

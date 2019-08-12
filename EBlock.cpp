@@ -11,11 +11,8 @@ int rand_int(int low, int high)
 
 EBlock::EBlock()
 {
-	titleText.setString("Block");
-	titleText.setCharacterSize(24); // in pixels, not points!
-	titleText.setFillColor(sf::Color::Red);
 
-	drawingGroup.push_back(titleText);
+	
 	drawingGroup.push_back(backgroundShape);
 
 	backgroundShape.setSize(sf::Vector2f(50.0f, 25.0f));
@@ -33,6 +30,12 @@ EBlock::~EBlock()
 
 void EBlock::Init()
 {
+	titleText.setFont(*textFont);
+	titleText.setString("Hello World");
+	titleText.setCharacterSize(24);
+	titleText.setFillColor(sf::Color::Red);
+
+	drawingGroup.push_back(titleText);
 }
 
 void EBlock::Update()

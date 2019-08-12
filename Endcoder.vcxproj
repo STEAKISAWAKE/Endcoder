@@ -141,6 +141,7 @@
     <ClCompile Include="EBlockManager.cpp" />
     <ClCompile Include="EGroup.cpp" />
     <ClCompile Include="EGui.cpp" />
+    <ClCompile Include="EKeyboard.cpp" />
     <ClCompile Include="ELog.cpp" />
     <ClCompile Include="EProjectSettings.cpp" />
     <ClCompile Include="ERenderer.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="EBlockManager.h" />
     <ClInclude Include="EGroup.h" />
     <ClInclude Include="EGui.h" />
+    <ClInclude Include="EKeyboard.h" />
     <ClInclude Include="ELog.h" />
     <ClInclude Include="EProjectSettings.h" />
     <ClInclude Include="ERenderer.h" />
